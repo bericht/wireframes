@@ -1,0 +1,8 @@
+.article-list .tag-list { padding-left: 1em; }
+
+.topic-list { margin-top: 2em; }
+.topic-list article { margin-bottom: 2em; }
+.topic-list article .tag { margin-top: 15px; }
+.topic-list article .title { margin-top: 5px; }
+
+.article-content article { font-size: 1.2em; }

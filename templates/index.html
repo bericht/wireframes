@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}Startseite{% endblock %}
+
+{% block content %}
+{% if breaking_news %}
+<div class="row">
+    <div class="col-md-12">
+      <div class="jumbotron breaking-news placeholder">
+        {{ breaking_news | safe }}
+      </div>
+    </div>
+</div>
+{% endif %}
+
+<div class="row" role="main">
+  <div class="col-md-9 article-list placeholder">
+    {% for article in news %}
+    <article>
+      <h2><a href="article.html">{{ article.title }}</a></h2>
+      <div>
+        <time>
+          <span class="glyphicon glyphicon-time"></span>
+          &nbsp;{{ article.date }}
+        </time>
+        <span class="tag-list">
+          <span class="glyphicon glyphicon-tags"></span>
+          &nbsp;{{ article.tags }}
+        </span>
+      </div>
+      <p>{{ article.teaser }}</p>
+
+    </article>
+    {% endfor %}
+  </div>
+  <div class="col-md-3">
+    <h2>Termine</h2>
+    <div class="list-group placeholder">
+      {# Please stick to the hcalendar spec here: http://microformats.org/wiki/hcalendar #}
+      {% for event in events %}
+      <a class="list-group-item vevent">
+        <h3 class="list-group-item-heading summary">{{ event.title }}</h3>
+        <p class="list-group-item-text">
+          <div>
+            <span class="glyphicon glyphicon-time"></span>
+            <span class="dtstart">{{ event.date }}</span>
+          </div>
+          <div>
+            <span class="glyphicon glyphicon-home"></span>
+            <span class="location">{{ event.location }}</span>
+          </div>
+        </p>
+      </a>
+      {% endfor %}
+    </div>
+
+    <h2>Fragen</h2>
+    <div class="list-group placeholder">
+      {% for question in questions %}
+      <a class="list-group-item">
+        {{ question.title }}
+        <span class="badge">{{ question.posts }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+<div class="row well topic-list placeholder">
+  {% for article in news %}
+  <article class="col-md-4">
+    <div class="tag">
+      {{ article.tags }}
+    </div>
+    <h2 class="title">{{ article.title }}</h2>
+    <p class="teaser">{{ article.teaser }}</p>
+
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}

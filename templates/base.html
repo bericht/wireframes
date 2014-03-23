@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    {% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/style.css" rel="stylesheet">
+    {% endblock %}
+  </head>
+  <body>
+    {% block navigation %}
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#" class="placeholer">Bericht</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav placeholder">
+            <li><a href="/index.html" >Neues</a></li>
+            <li><a href="/texts.html">Texte</a></li>
+            <li><a href="/events.html">Termine</a></li>
+            <li><a href="/questions.html">Fragen</a></li>
+            <li><a href="/about.html">Was ist das?</a></li>
+          </ul>
+          <button type="button" class="btn btn-default navbar-btn navbar-right">Anmelden</button>
+
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Suchen">
+            </div>
+            <button type="submit" class="btn btn-default">Los!</button>
+          </form>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.navbar-inner -->
+    </nav>
+    {% endblock %}
+
+    <div class="container">
+      {% block content %}
+
+      {% endblock %}
+    </div> <!-- /container -->
+
+    {% block scripts %}
+    <script src="/static/jquery-1.10.2.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    {% endblock %}
+  </body>
+</html>
